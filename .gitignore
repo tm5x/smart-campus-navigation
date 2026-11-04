@@ -1,0 +1,35 @@
+# Compiled output
+*.o
+*.obj
+*.d
+*.gch
+*.pch
+*.exe
+*.out
+*.app
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.pdb
+*.ilk
+/campus
+
+# Build folders
+build/
+Build/
+bin/
+
+# Editor and IDE files
+.vscode/
+.idea/
+.cache/
+*.code-workspace
+*.swp
+*~
+.DS_Store
+
+# Temporary files
+*.tmp
+*.bak
