@@ -8,8 +8,8 @@ Project 2 for CSCE 2110
 ## Team Members
 
 - Trenton Maxime (Member A)
-- Alison Rojo Hernandez (Member B)
-- Steven Aguilar (Member C)
+- Steven Aguilar (Member B)
+- Alison Rojo Hernandez (Member C)
 
 Individual responsibilities and contributions are documented in the
 separate Group Contribution Report.
