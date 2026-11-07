@@ -73,7 +73,7 @@ DepartmentNode* DepartmentTree::findNode(
         return nullptr;
     }
 
-    if (sameNode(node->name, name)) {
+    if (sameName(node->name, name)) {
         return node;
     }
 
@@ -269,7 +269,7 @@ void DepartmentTree::searchDepartment(string name) {
         cout << "Parent: None\n";
     }
     else {
-        cout << "Parent: " found->parent->name << endl;
+        cout << "Parent: " << found->parent->name << endl;
     }
 
     cout << "Direct children: "
@@ -287,7 +287,7 @@ void DepartmentTree::printHierarchy(
     }
 
     for (int i = 0; i < depth; i++) {
-        cout << "   ";
+        cout << "    ";
     }
 
     cout << node->name << endl;
@@ -320,7 +320,7 @@ void DepartmentTree::preorderNode(DepartmentNode* node) {
     }
 }
 
-//Runds preorder traversal
+//Runs preorder traversal
 void DepartmentTree::preorder() {
     if (root == nullptr) {
         cout << "No departments are loaded.\n";\
@@ -350,6 +350,16 @@ void DepartmentTree::postorder() {
         return;
     }
 
+    postorderNode(root);
+}
+
+//Level-order: one level at a time using a queue
+void DepartmentTree::levelOrder() {
+    if (root == nullptr) {
+       cout << "No departments are loaded.\n";
+       return;
+    }
+
     queue<DepartmentNode*> q;
     q.push(root);
 
@@ -359,6 +369,7 @@ void DepartmentTree::postorder() {
 
         cout << current->name << endl;
 
+        //Add the children to the queue
         for (int i = 0; i < current->children.size(); i++) {
             q.push(current->children[i]);
         }
