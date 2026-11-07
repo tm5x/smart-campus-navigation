@@ -4,11 +4,16 @@
 #include <sstream>
 #include <cctype>
 
-#include "Facility.h"
-#include "HashTable.h"
-#include "DepartmentTree.h"
+#include "../include/Facility.h"
+#include "../include/HashTable.h"
+#include "../include/DepartmentTree.h"
+#include "../include/CampusGraph.h"
+#include "../include/FacilityDatabase.h"
+
 
 using namespace std;
+
+// will need a helper function here to deal with stray /r - trent
 
 int main(int argc, char* argv[]) {
     string dataDirectory = "data";
@@ -37,8 +42,8 @@ int main(int argc, char* argv[]) {
     //menu running till user exists
     while (true) {
 
-        cout << "\n"====================================\n";
-        cout << "        SMART CAMPUS SYSTEM\n;
+        cout << "\n====================================\n";
+        cout << "        SMART CAMPUS SYSTEM\n";
         cout << "====================================\n";
 
         cout << "1. View all facilities\n";
@@ -58,7 +63,7 @@ int main(int argc, char* argv[]) {
             break;
         }
 
-        stringstream ss(input)
+        stringstream ss(input);
         char extra;
 
         //check for invalid menu input
@@ -102,7 +107,7 @@ int main(int argc, char* argv[]) {
                 cout << "Enter department name: ";
                 getline(cin, name);
 
-                if (name.find_first_not_off(" \t\r") == string::npos) {
+                if (name.find_first_not_of(" \t\r") == string::npos) {
                     cout << "Error: Department name cannot be empty.\n";
                     break;
                 }
