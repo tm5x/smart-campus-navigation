@@ -23,7 +23,8 @@ int main(int argc, char* argv[]) {
     }
 
     //member A - facilites
-
+    FacilityDatebase facilites;
+    
     //member C - department tree
     DepartmentTree departments;
 
@@ -55,7 +56,7 @@ int main(int argc, char* argv[]) {
         cout << "7. Search department\n";
         cout << "8. Display department hierarchy\n";
         cout << "9. Run preorder travrsal\n";
-        cout << "10. Exit\n";
+        cout << "0. Exit\n";
 
         cout << "\nEnter your choice: ";
 
@@ -71,18 +72,24 @@ int main(int argc, char* argv[]) {
             cout << "Invalid input. Enter a number from 1 to 10.\n";
             continue;
         }
-
+        //menu choices
         switch (choice) {
 
             case 1: {
                 //member A - view all facilities
-                
+                facilites.displayAll();
+                break;
             }
 
             case 2: {
                 //member A - search facility by ID
+                string id;
+                
+                cout << "Enter facility ID: ";
+                getline(cin, id);
 
-        
+                facilites.searchById(id);
+                break;
             }
 
             case 3:
@@ -107,7 +114,7 @@ int main(int argc, char* argv[]) {
                 cout << "Enter department name: ";
                 getline(cin, name);
 
-                if (name.find_first_not_of(" \t\r") == string::npos) {
+                if (name.find_first_not_of(" \t\r\n") == string::npos) {
                     cout << "Error: Department name cannot be empty.\n";
                     break;
                 }
@@ -117,7 +124,7 @@ int main(int argc, char* argv[]) {
                     cout << "Enter parent department: ";
                     getline(cin, parentName);
 
-                    if (parentName.find_first_not_of(" \t\r")
+                    if (parentName.find_first_not_of(" \t\r\n")
                         == string::npos) {
                         cout << "Error: Parent name cannot be empty.\n";
                         break;
@@ -159,12 +166,14 @@ int main(int argc, char* argv[]) {
                 departments.preorder();
                 break;
 
-            case 10:
+            case 0:
                 cout << "Exit program. Goodbye!\n";
                 return 0;
 
-            default:
-                cout << "Invalid choice. Try again.\n";
+            default: {
+                cout << "Invalid choice. Choose 0 through 9.\n";
+                break;
+            }
         }
     }
 
