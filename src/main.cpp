@@ -138,7 +138,7 @@ int main(int argc, char* argv[]) {
                 cout << "Enter department name: ";
                 getline(cin, name);
 
-                if (name.find_first_not_off(" \t\r") == string::npos) {
+                if (name.find_first_not_of(" \t\r") == string::npos) {
                     cout << "Error: Department name cannot be empty.\n";
                     break;
                 }

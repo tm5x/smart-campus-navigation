@@ -1,4 +1,4 @@
-#include "DepartmentTree.h"
+#include "../include/DepartmentTree.h"
 #include <iostream>
 #include <fstream>
 #include <queue>
