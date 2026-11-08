@@ -23,4 +23,4 @@ class CampusGraph {
     void bfs();
 };
 
-#endif;
+#endif
