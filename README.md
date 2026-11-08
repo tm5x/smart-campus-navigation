@@ -17,14 +17,19 @@ separate Group Contribution Report.
 ## Project Files
 
 Header files: CampusGraph.h, DepartmentTree.h, Facility.h, FacilityDatabase.h, HashTable.h
+
 Source code: DepartmentTree.cpp, Facility.cpp, FacilityDatabase.cpp, HashTable.cpp, main.cpp
+
 Data files: buildings.txt, connections.txt, facilities.txt, department.txt
 
 ## Features
 
 Polynomial string hash implementation
+
 General department tree
+
 Tree traversals and department statistics
+
 Separate chaining collision strategy
 
 ## Compile and Run
