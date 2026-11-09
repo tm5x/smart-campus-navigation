@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
     }
 
     //member A - facilites
-    FacilityDatebase facilites;
+    FacilityDatabase facilites;
     
     //member C - department tree
     DepartmentTree departments;
@@ -31,14 +31,13 @@ int main(int argc, char* argv[]) {
     //member B - campus graph here
     CampusGraph campus;
 
-    //member B loads buildings.txt
-    //campus.LoadBuildings(dataDirectory + "/buildings.txt");
-    //member B loads connections.txt
-    //campus.LoadConnections(dataDirectory + "/connections.txt");
-    //member A loads facilities.txt
+    campus.LoadBuildings(dataDirectory + "/buildings.txt");
+    campus.LoadConnections(dataDirectory + "/connections.txt");
+    facilites.load(dataDirectory + "/facilities.txt", campus);
+    departments.loadFromFile(dataDirectory + "/departments.txt");
+
 
     //member C loads departments.txt
-    departments.loadFromFile(dataDirectory + "/departments.txt");
 
     string input;
     int choice;

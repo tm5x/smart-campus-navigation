@@ -16,7 +16,8 @@ class CampusGraph {
     vector <Building> buildings;
   public:
     void addBuilding(string buildingName);
-    int FindBuilding(string buildingName);
+    int FindBuilding(string buildingName) const;
+    string getBuildingName(int index) const;
     void Connect(string buildingName, string neighborName);
     void DisplayGraph();
     void DisplayStats();

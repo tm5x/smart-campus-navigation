@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 #include <queue>
+#include <fstream>
+#include <cctype>
 using namespace std;
 
 void CampusGraph::addBuilding(string buildingName) {
@@ -17,13 +19,21 @@ void CampusGraph::addBuilding(string buildingName) {
     buildings.push_back(newBuilding);
 }
 
-int CampusGraph::FindBuilding(string buildingName) {
+int CampusGraph::FindBuilding(string buildingName) const {
     for (int i = 0; i < buildings.size(); i++) {
         if (buildingName == buildings[i].buildingName) {
             return i;
         }
     }
     return -1;
+}
+
+string CampusGraph::getBuildingName(int index) const{
+    if (index < 0 || index >= (int) buildings.size()) {
+        return "";
+        }
+    return buildings[index].buildingName;
+
 }
 
 void CampusGraph::Connect(string buildingName, string neighborName) {
@@ -114,5 +124,44 @@ void CampusGraph::bfs(string buildingName) {
                 b.push(neighborIndex);
             }
         } 
+    }
+}
+
+static string trimText(const string& s) {
+    size_t a = s.find_first_not_of(" \t\r\n");
+    if (a == string::npos) return "";
+    size_t b = s.find_last_not_of(" \t\r\n");
+    return s.substr(a, b - a + 1);
+}
+
+// error message if loading text doesn't work
+// code to go with the header file missing before
+void CampusGraph::LoadBuildings(string filename) {
+    ifstream file(filename);
+    if (!file.is_open()) {
+        cout << "Error: could not open " << filename << endl;
+        return;
+    }
+    string line;
+    while (getline(file, line)) {
+        line = trimText(line);
+        if (line.empty() || line[0] == '#') continue;
+        addBuilding(line);
+    }
+}
+
+void CampusGraph::LoadConnections(string filename) {
+    ifstream file(filename);
+    if (!file.is_open()) {
+        cout << "Error: could not open " << filename << endl;
+        return;
+    }
+    string line;
+    while (getline(file, line)) {
+        line = trimText(line);
+        if (line.empty() || line[0] == '#') continue;
+        size_t bar = line.find('|');
+        if (bar == string::npos) continue;
+        Connect(trimText(line.substr(0, bar)), trimText(line.substr(bar + 1)));
     }
 }

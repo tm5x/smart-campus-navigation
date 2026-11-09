@@ -136,7 +136,7 @@ bool FacilityDatabase::parseRecord(const string& line, const CampusGraph& graph,
     }
 
     // code depends on campus graph file
-    int buildingIndex = graph.findBuilding(fields[2]);
+    int buildingIndex = graph.FindBuilding(fields[2]);
     if (buildingIndex == -1) {
         reason = "unknown building \"" + fields[2] + "\"";
         return false;
