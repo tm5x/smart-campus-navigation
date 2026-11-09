@@ -21,6 +21,8 @@ class CampusGraph {
     void DisplayGraph();
     void DisplayStats();
     void bfs(string buildingName);
+    void LoadBuildings(string filename);
+    void LoadConnections(string filename);
 };
 
 #endif
