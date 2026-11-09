@@ -16,11 +16,11 @@ class CampusGraph {
     vector <Building> buildings;
   public:
     void addBuilding(string buildingName);
+    void FindBuilding(string buildingName);
     void Connect(string buildingName, string neighborName);
     void DisplayGraph();
     void DisplayStats();
-    void FindBuilding();
-    void bfs();
+    void bfs(string buildingName);
 };
 
 #endif
