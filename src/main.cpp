@@ -29,6 +29,7 @@ int main(int argc, char* argv[]) {
     DepartmentTree departments;
 
     //member B - campus graph here
+    CampusGraph campus;
 
     //member B loads buildings.txt
     //member B loads connections.txt
@@ -94,16 +95,21 @@ int main(int argc, char* argv[]) {
 
             case 3:
                 //member B - view campus graph
+                campus.DisplayGraph();
                 break;
 
             case 4:
                 //member B - graph counts and degrees
-
+                campus.DisplayStats();
                 break;
 
             case 5: 
                 //member B - BFS reachability
-
+                string buildingName;
+                cout << "Starting from: ";
+                getline(cin, buildingName);
+                
+                campus.bfs(buildingName);
                 break;
 
             case 6: {
