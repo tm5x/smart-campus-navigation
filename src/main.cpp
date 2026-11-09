@@ -32,9 +32,9 @@ int main(int argc, char* argv[]) {
     CampusGraph campus;
 
     //member B loads buildings.txt
-    campus.LoadBuildings(dataDirectory + "/buildings.txt");
+    //campus.LoadBuildings(dataDirectory + "/buildings.txt");
     //member B loads connections.txt
-    campus.LoadConnections(dataDirectory + "/connections.txt");
+    //campus.LoadConnections(dataDirectory + "/connections.txt");
     //member A loads facilities.txt
 
     //member C loads departments.txt
