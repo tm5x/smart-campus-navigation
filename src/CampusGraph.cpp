@@ -54,7 +54,6 @@ void CampusGraph::Connect(string buildingName, string neighborName) {
         return;
     }
 
-    buildings[index].neighbors;
     for (int j = 0; j < buildings[index].neighbors.size(); j++) {
         if (neighborName == buildings[index].neighbors[j]) {
             return;
