@@ -32,7 +32,9 @@ int main(int argc, char* argv[]) {
     CampusGraph campus;
 
     //member B loads buildings.txt
+    campus.LoadBuildings(dataDirectory + "/buildings.txt");
     //member B loads connections.txt
+    campus.LoadConnections(dataDirectory + "/connections.txt");
     //member A loads facilities.txt
 
     //member C loads departments.txt
@@ -70,7 +72,7 @@ int main(int argc, char* argv[]) {
 
         //check for invalid menu input
         if (!(ss >> choice) || (ss >> extra)) {
-            cout << "Invalid input. Enter a number from 1 to 10.\n";
+            cout << "Invalid input. Enter a number from 1 to 9.\n";
             continue;
         }
         //menu choices
@@ -103,14 +105,16 @@ int main(int argc, char* argv[]) {
                 campus.DisplayStats();
                 break;
 
-            case 5: 
+            case 5: {
                 //member B - BFS reachability
                 string buildingName;
+                
                 cout << "Starting from: ";
                 getline(cin, buildingName);
                 
                 campus.bfs(buildingName);
                 break;
+            }
 
             case 6: {
                 //member C - add a department
